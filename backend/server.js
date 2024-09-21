@@ -6,6 +6,9 @@ import foodRouter from "./routes/foodRoute.js";
 // app config
 const app = express();
 const port = 4000;
+// middleware
+app.use(express.json());
+app.use(cors());
 
 // db connection
 connectDB();
@@ -13,9 +16,6 @@ connectDB();
 // api endpoints
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads"));
-// middleware
-app.use(express.json());
-app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("API Working...");

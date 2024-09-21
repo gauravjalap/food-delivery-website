@@ -40,7 +40,7 @@ const listFood = async (req, res) => {
 // remove food item
 const removeFood = async (req, res) => {
   //   console.log("req:", req);
-  console.log("req.body:", req.body);
+  //   console.log("req.body:", req.body);
 
   const foodId = req.body.id;
 
