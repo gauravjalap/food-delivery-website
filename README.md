@@ -32,15 +32,18 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/food-delivery-website.git
+   git clone https://github.com/gauravjalap/food-delivery-website.git
    cd food-delivery-website
    ```
 
 2. **Install dependencies:**
 
    ```bash
+   cd frontend
    npm install
-   cd client
+   cd ../backend
+   npm install
+   cd ../admin
    npm install
    ```
 
