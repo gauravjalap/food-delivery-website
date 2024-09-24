@@ -81,8 +81,9 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
    npm run dev
    ```
 
-   > [!NOTE]
+   > **_NOTE:_**
    > Run all the bash command in different terminal instances.
+   > Check if frontend_url is correct as of your platform
 
 ## Usage
 
