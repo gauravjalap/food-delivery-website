@@ -61,15 +61,28 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
 4. **Start the server:**
 
    ```bash
-   npm start
+   cd backend/
+   npm run server
    ```
 
 5. **Start the client:**
 
+   Firstly Admin Frontend:
+
    ```bash
-   cd client
-   npm start
+   cd admin/
+   npm run dev
    ```
+
+   For Food Delivery Website:
+
+   ```bash
+   cd frontend/
+   npm run dev
+   ```
+
+   > [!NOTE]
+   > Run all the bash command in different terminal instances.
 
 ## Usage
 
