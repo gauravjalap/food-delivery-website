@@ -83,7 +83,7 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
 
    > **_NOTE:_**
    > Run all the bash command in different terminal instances.
-   > Check if frontend_url is correct as of your platform
+   > And also check if frontend_url is correct as of your platform
 
 ## Usage
 
