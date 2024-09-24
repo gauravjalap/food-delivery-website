@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+
 export const connectDB = async () => {
-  await mongoose.connect("mongodb://localhost:27017/food-del").then(() => {
+  console.log("MOngo uri:", process.env.MONGO_URI);
+  await mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log("DB Connected!!");
   });
 };
