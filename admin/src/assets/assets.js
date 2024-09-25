@@ -14,8 +14,4 @@ export const assets = {
   parcel_icon,
 };
 
-<<<<<<< HEAD
-
-=======
 export const url = "https://masalamile.onrender.com";
->>>>>>> ffa5c940abcffb9d0704a0167b04819ce765f324
