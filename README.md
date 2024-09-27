@@ -1,6 +1,7 @@
 # Food Delivery Website
 
-   Website link: https://feastflies.onrender.com/
+   User Website link: [https://feastflies.gauravjalap.me](https://feastflies.gauravjalap.me)
+   Admin Website link: [https://admin-feastflies.gauravjalap.me](https://admin-feastflies.gauravjalap.me)
 
 ## Overview
 
