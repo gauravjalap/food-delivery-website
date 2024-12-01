@@ -1,7 +1,7 @@
 # Food Delivery Website
 
-   - User Website link: [https://feastflies.gauravjalap.me](https://feastflies.gauravjalap.me)
-   - Admin Website link: [https://admin-feastflies.gauravjalap.me](https://admin-feastflies.gauravjalap.me)
+   - User Website link: [https://food-del-nine-lemon.vercel.app/](https://food-del-nine-lemon.vercel.app/)
+   - Admin Website link: [https://food-del-admin-sigma.vercel.app/](https://food-del-admin-sigma.vercel.app/)
 
 ## Overview
 
