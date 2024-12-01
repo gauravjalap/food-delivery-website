@@ -4,9 +4,12 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  // backend URL
-  const url = "http://localhost:4000";
-  // const url = "https://masalamile.onrender.com";
+
+  // Backend URL
+  // const url = "http://localhost:4000";
+  const url = import.meta.env.VITE_BACKEND_URL;
+  // console.log({url})
+  
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
   const addToCart = async (itemId) => {

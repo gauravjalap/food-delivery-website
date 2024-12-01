@@ -9,7 +9,7 @@ const List = ({ url }) => {
     if (respone.data.success) {
       setList(respone.data.data);
     } else {
-      toast.error("Error");
+      toast.error("Error in fetching list");
     }
   };
   const removeFood = async (foodId) => {
@@ -20,7 +20,7 @@ const List = ({ url }) => {
     if (response.data.success) {
       toast.success(response.data.message);
     } else {
-      toast.error("Error");
+      toast.error("Error in removing food");
     }
   };
   useEffect(() => {
@@ -54,5 +54,5 @@ const List = ({ url }) => {
     </div>
   );
 };
-import "./List.css";
+
 export default List;
