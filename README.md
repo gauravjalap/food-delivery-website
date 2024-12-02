@@ -52,7 +52,7 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
 
 3. **Set up environment variables:**
 
-   Create a `.env` file in the root directory and add the following variables:
+   Create a `.env` file in the root directory (in backend folder) and add the following variables:
 
    ```env
    PORT=5000
