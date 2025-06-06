@@ -56,11 +56,17 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
 
    ```env
    PORT=5000
-   MONGO_URI=your_mongodb_connection_string
+   MONGO_URI=mongodb://localhost:27017/mydatabase
    JWT_SECRET=your_jwt_secret
    STRIPE_SECRET_KEY=your_stripe_secret_key
    ```
 
+   or do,
+   
+    ```bash
+    cp .env.example .env
+    ```
+> **NOTE:** You must be in root folder to run the above command.
 4. **Start the server:**
 
    ```bash
