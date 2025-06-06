@@ -48,6 +48,7 @@ This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, 
    npm install
    cd ../admin
    npm install
+   cd .. 
    ```
 
 3. **Set up environment variables:**
