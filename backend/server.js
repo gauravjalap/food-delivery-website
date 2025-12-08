@@ -12,22 +12,22 @@ const port = process.env.PORT || 4000;
 
 // Global error handler
 app.use((err, req, res, next) => {
-  console.error('Unhandled Error:', err);
+  console.error("Unhandled Error:", err);
   res.status(500).json({
-    error: 'Internal Server Error',
+    error: "Internal Server Error",
     message: err.message,
-    stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack
+    stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
   });
 });
 
 // Catch unhandled promise rejections
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection at:", promise, "reason:", reason);
 });
 
 // Catch uncaught exceptions
-process.on('uncaughtException', (error) => {
-  console.error('Uncaught Exception:', error);
+process.on("uncaughtException", (error) => {
+  console.error("Uncaught Exception:", error);
 });
 
 app.use(express.json());
@@ -37,7 +37,7 @@ app.use(cors());
 try {
   connectDB();
 } catch (error) {
-  console.error('Database Connection Error:', error);
+  console.error("Database Connection Error:", error);
 }
 
 app.use("/api/food", foodRouter);
@@ -50,5 +50,10 @@ app.get("/", (req, res) => {
   res.send("API Working...");
 });
 
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+  });
+}
 // Export for Vercel
 export default app;
