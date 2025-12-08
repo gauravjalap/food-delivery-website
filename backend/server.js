@@ -88,12 +88,18 @@ app.use((err, req, res, next) => {
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (reason, promise) => {
-  console.error("Unhandled Rejection at:", promise, "reason:", reason);
+  console.error("❌ Unhandled Rejection at:", promise);
+  console.error("Reason:", reason);
+  if (reason instanceof Error) {
+    console.error("Stack:", reason.stack);
+  }
 });
 
 // Handle uncaught exceptions
 process.on("uncaughtException", (error) => {
-  console.error("Uncaught Exception:", error);
+  console.error("❌ Uncaught Exception:");
+  console.error("Message:", error.message);
+  console.error("Stack:", error.stack);
   process.exit(1);
 });
 

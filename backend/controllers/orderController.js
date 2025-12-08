@@ -2,7 +2,12 @@ import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// Initialize Stripe only if valid key is provided (not placeholder)
+const stripe =
+  process.env.STRIPE_SECRET_KEY &&
+  process.env.STRIPE_SECRET_KEY !== "your_stripe_key"
+    ? new Stripe(process.env.STRIPE_SECRET_KEY)
+    : null;
 
 // In-memory orders storage for demo mode
 const demoOrders = [];
@@ -35,6 +40,15 @@ const placeOrder = async (req, res) => {
     }
 
     // Normal mode with Stripe
+    // Check if Stripe is configured
+    if (!stripe) {
+      return res.json({
+        success: false,
+        message:
+          "Payment processing not configured. Please set STRIPE_SECRET_KEY environment variable.",
+      });
+    }
+
     const newOrder = new orderModel({
       userId: req.body.userId,
       items: req.body.items,
