@@ -4,12 +4,37 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+// In-memory orders storage for demo mode
+const demoOrders = [];
+
 // placing user order from frontend
 const placeOrder = async (req, res) => {
-  // const frontend_url = "https://feastflies.onrender.com/";
-  // const frontend_url = "http://localhost:5174";
-  const frontend_url = process.env.FRONTEND_URL;
+  const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+
   try {
+    // Demo mode handling - simulate order placement without Stripe
+    if (req.body.userId === "demo-user-id") {
+      const demoOrder = {
+        _id: `demo-order-${Date.now()}`,
+        userId: "demo-user-id",
+        items: req.body.items,
+        amount: req.body.amount,
+        address: req.body.address,
+        status: "Food Processing",
+        date: new Date(),
+        payment: true,
+      };
+      demoOrders.push(demoOrder);
+
+      // Return success URL without Stripe checkout
+      return res.json({
+        success: true,
+        message: "Order placed successfully (Demo Mode)",
+        session_url: `${frontend_url}/verify?success=true&orderId=${demoOrder._id}`,
+      });
+    }
+
+    // Normal mode with Stripe
     const newOrder = new orderModel({
       userId: req.body.userId,
       items: req.body.items,
@@ -56,6 +81,16 @@ const placeOrder = async (req, res) => {
 const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
   try {
+    // Demo mode handling
+    if (orderId.startsWith("demo-order-")) {
+      if (success == "true") {
+        return res.json({ success: true, message: "Paid (Demo Mode)" });
+      } else {
+        return res.json({ success: false, message: "Not Paid (Demo Mode)" });
+      }
+    }
+
+    // Normal mode
     if (success == "true") {
       await orderModel.findByIdAndUpdate(orderId, { payment: true });
       res.json({ success: true, message: "Paid" });
@@ -72,6 +107,12 @@ const verifyOrder = async (req, res) => {
 // user orders for frontend
 const userOrders = async (req, res) => {
   try {
+    // Demo mode handling
+    if (req.body.userId === "demo-user-id") {
+      return res.json({ success: true, data: demoOrders });
+    }
+
+    // Normal mode
     const orders = await orderModel.find({ userId: req.body.userId });
     res.json({ success: true, data: orders });
   } catch (error) {

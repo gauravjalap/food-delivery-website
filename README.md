@@ -26,7 +26,7 @@ A full-stack food delivery platform built with the MERN stack (MongoDB, Express.
 ### Technical Features
 
 - ☁️ Cloud-based image storage (Cloudinary)
-- 🐳 Dockerized application with docker-compose
+- 🐳 Dockerized application with Docker Compose
 - 🔒 Secure authentication with JWT
 - ✅ Input validation with Joi
 - 🎨 Responsive design
@@ -42,13 +42,33 @@ food-delivery-website/
 └── docker-compose.yml
 ```
 
+## 🎯 For Recruiters - Quick Demo Access
+
+**No signup required!** This project runs in **DEMO MODE** by default, allowing you to:
+
+- ✅ Browse food items
+- ✅ Add items to cart
+- ✅ Complete checkout process
+- ✅ View order history
+- ❌ No authentication needed
+
+Simply visit the live demo and start exploring immediately!
+
+### Demo Features
+
+- Cart operations work without login
+- Orders are processed in demo mode (no real payment)
+- All features fully functional for testing
+
+---
+
 ## 🚀 Quick Start with Docker (Recommended)
 
 ### Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)
 - [Cloudinary Account](https://cloudinary.com/) (free tier)
-- [Stripe Account](https://stripe.com/) (for payments)
+- [Stripe Account](https://stripe.com/) (for payments - optional in demo mode)
 
 ### 1. Clone the repository
 
@@ -69,37 +89,39 @@ nano .env
 
 **Important:** Get your Cloudinary credentials from [Cloudinary Dashboard](https://cloudinary.com/console)
 
-### 3. Start all services
+**For Demo Mode (Recruiter-friendly):**
+
+- Set `DEMO_MODE=true` in `.env` (enabled by default in Docker Compose)
+- This bypasses authentication for cart and checkout
+- No Stripe setup required for demo mode
+
+### 3. Start all services (Auto-seeds database)
 
 ```bash
 # Start all containers (MongoDB, Backend, Frontend, Admin)
-docker-compose up -d
+# Database will be automatically seeded with 32 food items
+docker compose up -d
 
-# View logs
-docker-compose logs -f
+# View logs to confirm seeding
+docker compose logs -f backend
 ```
 
-### 4. Seed the database with sample data
+**Note:** First startup takes ~30 seconds to seed database automatically.
 
-```bash
-# Seed database with 32 food items
-docker-compose exec backend npm run seed
-```
-
-### 5. Access the applications
+### 4. Access the applications
 
 - **Frontend (User):** http://localhost:5173
 - **Admin Panel:** http://localhost:5174
 - **Backend API:** http://localhost:4000
 - **MongoDB:** localhost:27017
 
-### 6. Stop all services
+### 5. Stop all services
 
 ```bash
-docker-compose down
+docker compose down
 
 # To remove volumes as well (deletes database)
-docker-compose down -v
+docker compose down -v
 ```
 
 ## 🛠️ Manual Installation (Without Docker)
@@ -178,6 +200,9 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+
+# Demo Mode - Set to true for recruiter-friendly access (no authentication required)
+DEMO_MODE=true
 ```
 
 ### Frontend/Admin (.env.local)
@@ -185,6 +210,13 @@ CLOUDINARY_API_SECRET=your_api_secret
 ```env
 VITE_BACKEND_URL=http://localhost:4000
 ```
+
+### Important Environment Settings
+
+**DEMO_MODE**:
+
+- `true` (default): Allows cart/checkout without signup - perfect for recruiters
+- `false`: Requires user authentication - production mode
 
 ## 🗂️ Project Structure
 
