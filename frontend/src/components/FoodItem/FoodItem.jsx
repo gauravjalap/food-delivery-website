@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import "./FoodItem.css";
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart , url} = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
+  // Use full URL if image is already a complete URL (Cloudinary), otherwise prepend backend URL
+  const imageUrl = image.startsWith("http") ? image : url + "/images/" + image;
+
   return (
     <div className="food-item">
       <div className="food-item-img-container">
-        <img className="food-item-image" src={url + "/images/" +image} alt="" />
+        <img className="food-item-image" src={imageUrl} alt="" />
         {!cartItems[id] ? (
           <img
             className="add"

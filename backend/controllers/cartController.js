@@ -1,8 +1,22 @@
 import userModel from "../models/userModel.js";
 
+// In-memory cart storage for demo mode
+const demoCart = {};
+
 // add items
 const addToCart = async (req, res) => {
   try {
+    // Demo mode handling
+    if (req.body.userId === "demo-user-id") {
+      if (!demoCart[req.body.itemId]) {
+        demoCart[req.body.itemId] = 1;
+      } else {
+        demoCart[req.body.itemId] += 1;
+      }
+      return res.json({ success: true, message: "Added to Cart (Demo Mode)" });
+    }
+
+    // Normal mode
     let userData = await userModel.findOne({ _id: req.body.userId });
     let cartData = await userData.cartData;
     if (!cartData[req.body.itemId]) {
@@ -23,6 +37,18 @@ const addToCart = async (req, res) => {
 // remove item from user cart
 const removeFromCart = async (req, res) => {
   try {
+    // Demo mode handling
+    if (req.body.userId === "demo-user-id") {
+      if (demoCart[req.body.itemId] > 0) {
+        demoCart[req.body.itemId] -= 1;
+      }
+      return res.json({
+        success: true,
+        message: "Removed from Cart (Demo Mode)",
+      });
+    }
+
+    // Normal mode
     let userData = await userModel.findById(req.body.userId);
     let cartData = await userData.cartData;
     if (cartData[req.body.itemId] > 0) {
@@ -39,6 +65,12 @@ const removeFromCart = async (req, res) => {
 // fetch user cart data
 const getCart = async (req, res) => {
   try {
+    // Demo mode handling
+    if (req.body.userId === "demo-user-id") {
+      return res.json({ success: true, cartData: demoCart });
+    }
+
+    // Normal mode
     let userData = await userModel.findById(req.body.userId);
     let cartData = await userData.cartData;
     res.json({ success: true, cartData });

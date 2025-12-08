@@ -19,12 +19,16 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map  ((item, index) => {
+        {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
+            // Use full URL if image is already a complete URL (Cloudinary), otherwise prepend backend URL
+            const imageUrl = item.image.startsWith("http")
+              ? item.image
+              : url + "/images/" + item.image;
             return (
               <div>
                 <div className="cart-items-title cart-items-item">
-                  <img src={url + "/images/" + item.image} alt="" />
+                  <img src={imageUrl} alt="" />
                   <p>{item.name}</p>
                   <p>{item.price}</p>
                   <p>{cartItems[item._id]}</p>
