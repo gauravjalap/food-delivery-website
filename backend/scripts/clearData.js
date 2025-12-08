@@ -23,7 +23,7 @@ const clearData = async () => {
     console.log(`✅ Deleted ${foodCount} food items`);
 
     const orderCount = await orderModel.countDocuments();
-    await foodModel.deleteMany({});
+    await orderModel.deleteMany({});
     console.log(`✅ Deleted ${orderCount} orders`);
 
     // Uncomment if you want to clear users too

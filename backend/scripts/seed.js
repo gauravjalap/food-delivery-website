@@ -4,262 +4,265 @@ import foodModel from "../models/foodModel.js";
 
 dotenv.config();
 
+// ⚠️ IMPORTANT: These are PUBLIC Cloudinary URLs hosted by the project owner
+// Anyone can use this seed data without needing their own Cloudinary account
+// Perfect for: Demo deployments, Contributors, Recruiters testing your app
 const seedData = [
   {
-    name: "Greek salad",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/salad.jpg",
-    imagePublicId: "seed_1"
+    "name": "Greek salad",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218724/food-delivery/food_1.png",
+    "imagePublicId": "food-delivery/food_1",
+    "category": "Salad"
   },
   {
-    name: "Veg salad",
-    price: 18,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/salad2.jpg",
-    imagePublicId: "seed_2"
+    "name": "Veg salad",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 18,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218726/food-delivery/food_2.png",
+    "imagePublicId": "food-delivery/food_2",
+    "category": "Salad"
   },
   {
-    name: "Clover Salad",
-    price: 16,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/salad3.jpg",
-    imagePublicId: "seed_3"
+    "name": "Clover Salad",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 16,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218729/food-delivery/food_3.png",
+    "imagePublicId": "food-delivery/food_3",
+    "category": "Salad"
   },
   {
-    name: "Chicken Salad",
-    price: 24,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/chicken-salad.jpg",
-    imagePublicId: "seed_4"
+    "name": "Chicken Salad",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 24,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218731/food-delivery/food_4.png",
+    "imagePublicId": "food-delivery/food_4",
+    "category": "Salad"
   },
   {
-    name: "Lasagna Rolls",
-    price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/lasagna.jpg",
-    imagePublicId: "seed_5"
+    "name": "Lasagna Rolls",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 14,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218733/food-delivery/food_5.png",
+    "imagePublicId": "food-delivery/food_5",
+    "category": "Rolls"
   },
   {
-    name: "Peri Peri Rolls",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/rolls.jpg",
-    imagePublicId: "seed_6"
+    "name": "Peri Peri Rolls",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218735/food-delivery/food_6.png",
+    "imagePublicId": "food-delivery/food_6",
+    "category": "Rolls"
   },
   {
-    name: "Chicken Rolls",
-    price: 20,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/chicken-rolls.jpg",
-    imagePublicId: "seed_7"
+    "name": "Chicken Rolls",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 20,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218738/food-delivery/food_7.png",
+    "imagePublicId": "food-delivery/food_7",
+    "category": "Rolls"
   },
   {
-    name: "Veg Rolls",
-    price: 15,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/veg-rolls.jpg",
-    imagePublicId: "seed_8"
+    "name": "Veg Rolls",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 15,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218740/food-delivery/food_8.png",
+    "imagePublicId": "food-delivery/food_8",
+    "category": "Rolls"
   },
   {
-    name: "Ripple Ice Cream",
-    price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/ice-cream.jpg",
-    imagePublicId: "seed_9"
+    "name": "Ripple Ice Cream",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 14,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218741/food-delivery/food_9.png",
+    "imagePublicId": "food-delivery/food_9",
+    "category": "Deserts"
   },
   {
-    name: "Fruit Ice Cream",
-    price: 22,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/fruit-ice-cream.jpg",
-    imagePublicId: "seed_10"
+    "name": "Fruit Ice Cream",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 22,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218742/food-delivery/food_10.png",
+    "imagePublicId": "food-delivery/food_10",
+    "category": "Deserts"
   },
   {
-    name: "Jar Ice Cream",
-    price: 10,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/jar-ice-cream.jpg",
-    imagePublicId: "seed_11"
+    "name": "Jar Ice Cream",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 10,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218745/food-delivery/food_11.png",
+    "imagePublicId": "food-delivery/food_11",
+    "category": "Deserts"
   },
   {
-    name: "Vanilla Ice Cream",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/vanilla.jpg",
-    imagePublicId: "seed_12"
+    "name": "Vanilla Ice Cream",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218747/food-delivery/food_12.png",
+    "imagePublicId": "food-delivery/food_12",
+    "category": "Deserts"
   },
   {
-    name: "Chicken Sandwich",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/chicken-sandwich.jpg",
-    imagePublicId: "seed_13"
+    "name": "Chicken Sandwich",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218749/food-delivery/food_13.png",
+    "imagePublicId": "food-delivery/food_13",
+    "category": "Sandwich"
   },
   {
-    name: "Vegan Sandwich",
-    price: 18,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/vegan-sandwich.jpg",
-    imagePublicId: "seed_14"
+    "name": "Vegan Sandwich",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 18,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218751/food-delivery/food_14.png",
+    "imagePublicId": "food-delivery/food_14",
+    "category": "Sandwich"
   },
   {
-    name: "Grilled Sandwich",
-    price: 16,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/grilled-sandwich.jpg",
-    imagePublicId: "seed_15"
+    "name": "Grilled Sandwich",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 16,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218753/food-delivery/food_15.png",
+    "imagePublicId": "food-delivery/food_15",
+    "category": "Sandwich"
   },
   {
-    name: "Bread Sandwich",
-    price: 24,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/bread-sandwich.jpg",
-    imagePublicId: "seed_16"
+    "name": "Bread Sandwich",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 24,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218754/food-delivery/food_16.png",
+    "imagePublicId": "food-delivery/food_16",
+    "category": "Sandwich"
   },
   {
-    name: "Cup Cake",
-    price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/cupcake.jpg",
-    imagePublicId: "seed_17"
+    "name": "Cup Cake",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 14,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218757/food-delivery/food_17.png",
+    "imagePublicId": "food-delivery/food_17",
+    "category": "Cake"
   },
   {
-    name: "Vegan Cake",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/vegan-cake.jpg",
-    imagePublicId: "seed_18"
+    "name": "Vegan Cake",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218758/food-delivery/food_18.png",
+    "imagePublicId": "food-delivery/food_18",
+    "category": "Cake"
   },
   {
-    name: "Butterscotch Cake",
-    price: 20,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/butterscotch.jpg",
-    imagePublicId: "seed_19"
+    "name": "Butterscotch Cake",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 20,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218760/food-delivery/food_19.png",
+    "imagePublicId": "food-delivery/food_19",
+    "category": "Cake"
   },
   {
-    name: "Sliced Cake",
-    price: 15,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/sliced-cake.jpg",
-    imagePublicId: "seed_20"
+    "name": "Sliced Cake",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 15,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218762/food-delivery/food_20.png",
+    "imagePublicId": "food-delivery/food_20",
+    "category": "Cake"
   },
   {
-    name: "Garlic Mushroom",
-    price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/mushroom.jpg",
-    imagePublicId: "seed_21"
+    "name": "Garlic Mushroom",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 14,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218763/food-delivery/food_21.png",
+    "imagePublicId": "food-delivery/food_21",
+    "category": "Pure Veg"
   },
   {
-    name: "Fried Cauliflower",
-    price: 22,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/cauliflower.jpg",
-    imagePublicId: "seed_22"
+    "name": "Fried Cauliflower",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 22,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218765/food-delivery/food_22.png",
+    "imagePublicId": "food-delivery/food_22",
+    "category": "Pure Veg"
   },
   {
-    name: "Mix Veg Pulao",
-    price: 10,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/pulao.jpg",
-    imagePublicId: "seed_23"
+    "name": "Mix Veg Pulao",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 10,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218767/food-delivery/food_23.png",
+    "imagePublicId": "food-delivery/food_23",
+    "category": "Pure Veg"
   },
   {
-    name: "Rice Zucchini",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/rice-zucchini.jpg",
-    imagePublicId: "seed_24"
+    "name": "Rice Zucchini",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218769/food-delivery/food_24.png",
+    "imagePublicId": "food-delivery/food_24",
+    "category": "Pure Veg"
   },
   {
-    name: "Cheese Pasta",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/cheese-pasta.jpg",
-    imagePublicId: "seed_25"
+    "name": "Cheese Pasta",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218771/food-delivery/food_25.png",
+    "imagePublicId": "food-delivery/food_25",
+    "category": "Pasta"
   },
   {
-    name: "Tomato Pasta",
-    price: 18,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/tomato-pasta.jpg",
-    imagePublicId: "seed_26"
+    "name": "Tomato Pasta",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 18,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218773/food-delivery/food_26.png",
+    "imagePublicId": "food-delivery/food_26",
+    "category": "Pasta"
   },
   {
-    name: "Creamy Pasta",
-    price: 16,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/creamy-pasta.jpg",
-    imagePublicId: "seed_27"
+    "name": "Creamy Pasta",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 16,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218775/food-delivery/food_27.png",
+    "imagePublicId": "food-delivery/food_27",
+    "category": "Pasta"
   },
   {
-    name: "Chicken Pasta",
-    price: 24,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/chicken-pasta.jpg",
-    imagePublicId: "seed_28"
+    "name": "Chicken Pasta",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 24,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218777/food-delivery/food_28.png",
+    "imagePublicId": "food-delivery/food_28",
+    "category": "Pasta"
   },
   {
-    name: "Butter Noodles",
-    price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/butter-noodles.jpg",
-    imagePublicId: "seed_29"
+    "name": "Butter Noodles",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 14,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218778/food-delivery/food_29.png",
+    "imagePublicId": "food-delivery/food_29",
+    "category": "Noodles"
   },
   {
-    name: "Veg Noodles",
-    price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/veg-noodles.jpg",
-    imagePublicId: "seed_30"
+    "name": "Veg Noodles",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 12,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218781/food-delivery/food_30.png",
+    "imagePublicId": "food-delivery/food_30",
+    "category": "Noodles"
   },
   {
-    name: "Somen Noodles",
-    price: 20,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/somen-noodles.jpg",
-    imagePublicId: "seed_31"
+    "name": "Somen Noodles",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 20,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218783/food-delivery/food_31.png",
+    "imagePublicId": "food-delivery/food_31",
+    "category": "Noodles"
   },
   {
-    name: "Cooked Noodles",
-    price: 15,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
-    image: "https://res.cloudinary.com/demo/image/upload/v1/food-samples/cooked-noodles.jpg",
-    imagePublicId: "seed_32"
+    "name": "Cooked Noodles",
+    "description": "Food provides essential nutrients for overall health and well-being",
+    "price": 15,
+    "image": "https://res.cloudinary.com/dq1n0rffd/image/upload/v1765218785/food-delivery/food_32.png",
+    "imagePublicId": "food-delivery/food_32",
+    "category": "Noodles"
   }
 ];
 
@@ -273,19 +276,20 @@ const seedDatabase = async () => {
     await foodModel.deleteMany({});
     console.log("✅ Cleared existing data");
 
-    console.log("📦 Inserting seed data...");
+    console.log("📦 Inserting seed data with ${seedData.length} items...");
     const result = await foodModel.insertMany(seedData);
     console.log(`✅ Successfully seeded ${result.length} food items`);
 
-    console.log("\n📊 Summary:");
+    console.log("\n📊 Summary by Category:");
     const categories = await foodModel.aggregate([
       { $group: { _id: "$category", count: { $sum: 1 } } },
       { $sort: { _id: 1 } }
     ]);
     categories.forEach(cat => {
-      console.log(`   ${cat._id}: ${cat.count} items`);
+      console.log(`   ${cat._id.padEnd(12)}: ${cat.count} items`);
     });
 
+    console.log("\n✨ Database seeded successfully! Your app now has real food data.\n");
     process.exit(0);
   } catch (error) {
     console.error("❌ Error seeding database:", error);

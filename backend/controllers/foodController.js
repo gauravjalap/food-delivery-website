@@ -16,10 +16,6 @@ const addFood = async (req, res) => {
     // Validate input
     const { error } = foodSchema.validate(req.body);
     if (error) {
-      // Delete uploaded image if validation fails
-      if (req.file) {
-        await cloudinary.uploader.destroy(req.file.filename);
-      }
       return res.status(400).json({
         success: false,
         message: error.details[0].message,
@@ -33,13 +29,31 @@ const addFood = async (req, res) => {
       });
     }
 
+    // Upload image to Cloudinary from memory buffer
+    const uploadResult = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        {
+          folder: "food-delivery",
+          resource_type: "image",
+          transformation: [
+            { width: 800, height: 800, crop: "limit", quality: "auto:good" },
+          ],
+        },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      uploadStream.end(req.file.buffer);
+    });
+
     const food = new foodModel({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
       category: req.body.category,
-      image: req.file.path, // Cloudinary URL
-      imagePublicId: req.file.filename, // For deletion
+      image: uploadResult.secure_url, // Cloudinary URL
+      imagePublicId: uploadResult.public_id, // For deletion
     });
 
     await food.save();

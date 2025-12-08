@@ -28,7 +28,7 @@ Thumbs.db
 dist/
 build/
 
-# Uploads (if still using local storage)
+# Uploads directory (using Cloudinary, keep folder for compatibility)
 backend/uploads/*
 !backend/uploads/.gitkeep
 
