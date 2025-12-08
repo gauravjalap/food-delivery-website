@@ -1,137 +1,382 @@
-# Food Delivery Website
+# 🍕 MASALA MILE (Food Delivery Website)
 
-- User Website link: [https://food-del-nine-lemon.vercel.app/](https://food-del-nine-lemon.vercel.app/)
-- Admin Website link: [https://food-del-admin-sigma.vercel.app/](https://food-del-admin-sigma.vercel.app/)
+A full-stack food delivery platform built with the MERN stack (MongoDB, Express.js, React.js, Node.js), featuring user authentication, admin dashboard, shopping cart, and Stripe payment integration.
 
-## Overview
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://food-del-nine-lemon.vercel.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a full-stack Food Delivery Website built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The application includes both user and admin access, and payment options are integrated using Stripe.
+## 🌟 Features
 
-## Features
+### User Features
 
-- User Authentication (Login, Register)
-- Admin Dashboard
-- Browse and search for food items
-- Add items to cart
-- Place orders
-- Secure payment integration with Stripe
-- Responsive design
+- 🔐 User authentication (Register/Login with JWT)
+- 🍔 Browse food items by category
+- 🛒 Shopping cart management
+- 💳 Secure payment processing with Stripe
+- 📦 Order tracking
+- 👤 User profile management
 
-## Technologies Used
+### Admin Features
 
-- **Frontend:** React.js
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Payment Gateway:** Stripe
-- **Authentication:** JWT (JSON Web Tokens)
+- ➕ Add/Edit/Delete food items
+- 📊 Order management dashboard
+- 📈 View order statistics
+- 🖼️ Image upload to Cloudinary
 
-## Prerequisites
+### Technical Features
 
-- Node.js and npm installed on your machine
-- MongoDB installed and running
+- ☁️ Cloud-based image storage (Cloudinary)
+- 🐳 Dockerized application with docker-compose
+- 🔒 Secure authentication with JWT
+- ✅ Input validation with Joi
+- 🎨 Responsive design
+- 📱 Mobile-friendly UI
 
-## Installation
+## 🏗️ Architecture
 
-1.  **Clone the repository:**
+```
+food-delivery-website/
+├── backend/          # Express.js API server
+├── frontend/         # React user interface
+├── admin/            # React admin panel
+└── docker-compose.yml
+```
 
-    ```bash
-    git clone https://github.com/gauravjalap/food-delivery-website.git
-    cd food-delivery-website
-    ```
+## 🚀 Quick Start with Docker (Recommended)
 
-2.  **Install dependencies:**
+### Prerequisites
 
-    ```bash
-    cd frontend
-    npm install
-    cd ../backend
-    npm install
-    cd ../admin
-    npm install
-    cd ..
-    ```
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)
+- [Cloudinary Account](https://cloudinary.com/) (free tier)
+- [Stripe Account](https://stripe.com/) (for payments)
 
-3.  **Set up environment variables:**
+### 1. Clone the repository
 
-    Create a `.env` file in the backend directory and add the following variables:
+```bash
+git clone https://github.com/gauravjalap/food-delivery-website.git
+cd food-delivery-website
+```
 
-    ```env
-    PORT=5000
-    MONGO_URI=mongodb://localhost:27017/mydatabase
-    JWT_SECRET=your_jwt_secret
-    STRIPE_SECRET_KEY=your_stripe_secret_key
-    ```
+### 2. Configure environment variables
 
-    or run the following command in the root directory,
+```bash
+# Copy the environment template
+cp .env.example .env
 
-      ```bash
-      cd backend/
-      cp .env.example .env
-      ```
+# Edit .env with your credentials
+nano .env
+```
 
-    > **NOTE:** You must be in root folder to run the above command.
+**Important:** Get your Cloudinary credentials from [Cloudinary Dashboard](https://cloudinary.com/console)
 
-4.  **Start the server:**
+### 3. Start all services
 
-    ```bash
-    cd backend/
-    npm run server
-    ```
+```bash
+# Start all containers (MongoDB, Backend, Frontend, Admin)
+docker-compose up -d
 
-5.  **Start the client:**
+# View logs
+docker-compose logs -f
+```
 
-    Firstly Admin Frontend:
+### 4. Seed the database with sample data
 
-    ```bash
-    cd admin/
-    npm run dev
-    ```
+```bash
+# Seed database with 32 food items
+docker-compose exec backend npm run seed
+```
 
-    For Food Delivery Website:
+### 5. Access the applications
 
-    ```bash
-    cd frontend/
-    npm run dev
-    ```
+- **Frontend (User):** http://localhost:5173
+- **Admin Panel:** http://localhost:5174
+- **Backend API:** http://localhost:4000
+- **MongoDB:** localhost:27017
 
-    > **_NOTE:_**
-    > Run all the bash command in different terminal instances.
-    > And also check if frontend_url is correct as of your platform
+### 6. Stop all services
 
-## Usage
+```bash
+docker-compose down
 
-1. **User Registration and Login:**
+# To remove volumes as well (deletes database)
+docker-compose down -v
+```
 
-   Users can register and log in to their accounts.
+## 🛠️ Manual Installation (Without Docker)
 
-2. **Browse Food Items:**
+### Prerequisites
 
-   Users can browse and search for food items.
+- Node.js (v18+)
+- MongoDB (v6+)
+- npm or yarn
 
-3. **Add to Cart:**
+### Backend Setup
 
-   Users can add items to their cart.
+```bash
+cd backend
+npm install
+cp .env.example .env
+# Edit .env with your credentials
+npm run dev
+```
 
-4. **Place Orders:**
+### Frontend Setup
 
-   Users can place orders and make payments using Stripe.
+```bash
+cd frontend
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-5. **Admin Dashboard:**
+### Admin Setup
 
-   Admins can manage food items, view orders, and perform other administrative tasks.
+```bash
+cd admin
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-## Contributing
+### Seed Database
 
-Contributions are welcome! Please open an issue or submit a pull request.
+```bash
+cd backend
+npm run seed
+```
 
-## License
+## 📦 Available Scripts
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Backend
 
-## Contact
+```bash
+npm run dev          # Start development server with nodemon
+npm start            # Start production server
+npm run seed         # Seed database with sample data
+npm run seed:clear   # Clear all database data
+```
 
-For any questions or suggestions, feel free to contact me at [work.gauravkumar01@gmail.com](mailto:work.gauravkumar01@gmail.com).
+### Frontend/Admin
 
-## Acknowledgments
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
 
-- Thanks to the open-source community for providing valuable resources and libraries.
+## 🔧 Environment Variables
+
+### Backend (.env)
+
+```env
+NODE_ENV=development
+PORT=4000
+MONGO_URI=mongodb://admin:admin123@localhost:27017/food-delivery?authSource=admin
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+### Frontend/Admin (.env.local)
+
+```env
+VITE_BACKEND_URL=http://localhost:4000
+```
+
+## 🗂️ Project Structure
+
+```
+backend/
+├── config/
+│   ├── db.js                 # Database connection
+│   └── cloudinary.js         # Cloudinary configuration
+├── controllers/              # Request handlers
+├── middleware/
+│   └── auth.js              # JWT authentication
+├── models/                  # MongoDB schemas
+├── routes/                  # API routes
+├── scripts/
+│   ├── seed.js             # Database seeding
+│   └── clearData.js        # Clear database
+├── server.js               # Entry point
+└── Dockerfile
+
+frontend/
+├── src/
+│   ├── components/         # Reusable components
+│   ├── context/           # React context
+│   ├── pages/             # Page components
+│   └── assets/            # Images, styles
+├── Dockerfile
+└── nginx.conf
+
+admin/
+├── src/
+│   ├── components/
+│   └── pages/
+├── Dockerfile
+└── nginx.conf
+```
+
+## 🌐 API Endpoints
+
+### Food Routes
+
+- `GET /api/food/list` - Get all food items
+- `POST /api/food/add` - Add new food item (Admin)
+- `POST /api/food/remove` - Remove food item (Admin)
+
+### User Routes
+
+- `POST /api/user/register` - Register new user
+- `POST /api/user/login` - Login user
+
+### Cart Routes
+
+- `POST /api/cart/add` - Add item to cart
+- `POST /api/cart/remove` - Remove item from cart
+- `POST /api/cart/get` - Get user's cart
+
+### Order Routes
+
+- `POST /api/order/place` - Place new order
+- `POST /api/order/verify` - Verify payment
+- `POST /api/order/userorders` - Get user's orders
+- `GET /api/order/list` - Get all orders (Admin)
+- `POST /api/order/status` - Update order status (Admin)
+
+## 🎨 Tech Stack
+
+### Frontend
+
+- React 18
+- React Router DOM
+- Axios
+- Vite
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT for authentication
+- Bcrypt for password hashing
+- Multer for file uploads
+- Cloudinary for image storage
+- Stripe for payments
+- Joi for validation
+
+### DevOps
+
+- Docker & Docker Compose
+- Nginx (production)
+- GitHub Actions (CI/CD) - Coming soon
+
+## 🚢 Deployment
+
+### Deploy to Vercel
+
+**Backend:**
+
+```bash
+cd backend
+vercel --prod
+```
+
+**Frontend:**
+
+```bash
+cd frontend
+vercel --prod
+```
+
+**Admin:**
+
+```bash
+cd admin
+vercel --prod
+```
+
+### Deploy with Docker to VPS
+
+```bash
+# On your VPS
+git clone https://github.com/gauravjalap/food-delivery-website.git
+cd food-delivery-website
+
+# Set production environment variables
+nano .env
+
+# Start services
+docker-compose -f docker-compose.prod.yml up -d
+```
+
+## 🔐 Security Best Practices Implemented
+
+- ✅ Environment variables for sensitive data
+- ✅ JWT token authentication
+- ✅ Password hashing with bcrypt
+- ✅ Input validation with Joi
+- ✅ CORS configuration
+- ✅ File upload restrictions
+- ✅ MongoDB connection security
+- ✅ Rate limiting (TODO)
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation as needed
+
+## 📝 Todo List
+
+- [ ] Add unit tests
+- [ ] Implement rate limiting
+- [ ] Add email notifications
+- [ ] Implement real-time order tracking with WebSocket
+- [ ] Add search functionality
+- [ ] Implement reviews and ratings
+- [ ] Add multiple payment options
+- [ ] Migrate to Tailwind CSS
+- [ ] Add TypeScript support
+- [ ] Implement CI/CD pipeline
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👤 Author
+
+**Gaurav Kumar**
+
+- Email: work.gauravkumar01@gmail.com
+- GitHub: [@gauravjalap](https://github.com/gauravjalap)
+- LinkedIn: [Connect with me](https://linkedin.com/in/gauravjalap)
+
+## 🙏 Acknowledgments
+
+- Thanks to all contributors
+- Inspired by modern food delivery platforms
+- Built with love and lots of ☕
+
+## 📞 Support
+
+For support, email work.gauravkumar01@gmail.com or open an issue on GitHub.
+
+---
+
+⭐ **Star this repo if you find it helpful!** ⭐
