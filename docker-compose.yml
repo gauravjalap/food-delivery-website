@@ -39,6 +39,7 @@ services:
       CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
       CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
       CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+      DEMO_MODE: ${DEMO_MODE:-true}
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -48,7 +49,7 @@ services:
         condition: service_healthy
     networks:
       - food-delivery-network
-    command: npm run dev
+    command: sh -c "npm run seed && npm run dev"
 
   # Frontend
   frontend:
