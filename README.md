@@ -2,8 +2,14 @@
 
 A full-stack food delivery platform built with the MERN stack (MongoDB, Express.js, React.js, Node.js), featuring user authentication, admin dashboard, shopping cart, and Stripe payment integration.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://food-del-nine-lemon.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://masalamile.vercel.app/)
+[![Admin Panel](https://img.shields.io/badge/admin-live-blue.svg)](https://masalamile-admin.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**🌐 Live Links:**
+- **Frontend:** https://masalamile.vercel.app/
+- **Admin Panel:** https://masalamile-admin.vercel.app/
+- **Demo Mode:** Enabled (No signup required - test all features immediately!)
 
 ## 🌟 Features
 
@@ -44,15 +50,19 @@ food-delivery-website/
 
 ## 🎯 For Recruiters - Quick Demo Access
 
+**🚀 Try it live:** [https://masalamile.vercel.app/](https://masalamile.vercel.app/)
+
 **No signup required!** This project runs in **DEMO MODE** by default, allowing you to:
 
-- ✅ Browse food items
-- ✅ Add items to cart
-- ✅ Complete checkout process
+- ✅ Browse 32 food items across 8 categories
+- ✅ Add items to cart (works without login!)
+- ✅ Complete checkout process (no real payment needed)
 - ✅ View order history
-- ❌ No authentication needed
+- ✅ Test all features immediately
 
-Simply visit the live demo and start exploring immediately!
+**Admin Panel:** [https://masalamile-admin.vercel.app/](https://masalamile-admin.vercel.app/)
+- View all food items
+- See order management interface
 
 ### Demo Features
 
