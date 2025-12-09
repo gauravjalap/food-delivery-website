@@ -387,6 +387,29 @@ Contributions are welcome! Here's how you can help:
 - [ ] Add TypeScript support
 - [ ] Implement CI/CD pipeline
 
+## 🌍 Production Deployment
+
+### Deployed Architecture
+
+```
+Frontend (Vercel)  →  Backend (Render)  →  MongoDB Atlas
+Admin (Vercel)     →     (FREE)             (FREE 512MB)
+(FREE Unlimited)
+```
+
+### Quick Deploy
+
+1. **Backend (Render)**: Deploy from `backend/` directory
+2. **Frontend (Vercel)**: Deploy from `frontend/` directory
+3. **Admin (Vercel)**: Deploy from `admin/` directory
+4. **Database (MongoDB Atlas)**: Free M0 cluster
+
+**📖 Full deployment guide:** See [DEPLOYMENT-GUIDE.md](DEPLOYMENT-GUIDE.md)
+
+**✅ Quick checklist:** See [DEPLOYMENT-CHECKLIST.md](DEPLOYMENT-CHECKLIST.md)
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
